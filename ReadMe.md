@@ -41,3 +41,9 @@ For our ETL project we’re going to download datasets from NOAA and The Univers
         7. The “date_time” column was then grouped by year and the sea ice area columns were aggregated by the max value. 
         8. A connection the the MySQL server was then established.
         9. We used the pandas “.to_sql” function to upload the merged and sorted data frame to MySQL.
+
+* Production Database
+    * global_temp_sea_ice_comp_db
+        * tables
+            * sea_ice
+            * global_temp
