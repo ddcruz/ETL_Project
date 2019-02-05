@@ -4,7 +4,7 @@
     * Dexter
 
 ## Project proposal guidelines
-For our ETL project we’re going to download datasets from NOAA and The University of Colorado’s sea ice index. We will separate the data into northern and southern hemispheres to compare the land / sea temperature and the rate of ice melt. We will transform the date and group by month and look at the data over a 10-20 year time period.
+For our ETL project we’re going to download datasets from NOAA and The University of Colorado’s sea ice index. We will separate the data into northern and southern hemispheres for the sea ice so that analysts can compare against the global max and global min tempreature of the combined land and sea temperatures. We will transform the date and group by year.
 
 * Identify at least 2 data sources
     * 1st Source: Global temperatures (ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/v3/csv/)
@@ -33,6 +33,3 @@ For our ETL project we’re going to download datasets from NOAA and The Univers
     * 2nd Source: Sea Ice (ftp://sidads.colorado.edu/DATASETS/NOAA/G02135/)
 
 
-* Identify a data destination 
-    mySQL database
-    
