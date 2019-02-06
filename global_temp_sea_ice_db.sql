@@ -8,12 +8,12 @@ north_icearea_sq_km float,
 south_icearea_sq_km float);
 
 create table global_temp(
-year int,
+date_time date,
 tmax float,
 tmin float);
 
-#TRUNCATE TABLE sea_ica;
+#TRUNCATE TABLE sea_ice;
 #TRUNCATE TABLE global_temp;
 
-SELECT * FROM global_temp;
 SELECT * FROM sea_ice;
+SELECT * FROM global_temp;

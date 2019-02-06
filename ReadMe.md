@@ -8,7 +8,7 @@ For our ETL project we’re going to download datasets from NOAA and The Univers
 
 ## Identify at least 2 data sources
 
-We extracted global temperature data from NOAA and sea ice data from National Ice and Snow Data center. Total eight datasets are extracted for global temperature in which two datasets are used for minimum and maximum temperatures and two datasets are extracted for Northern hemisphere sea ice and Southern hemisphere sea ice. Sea ice data is the area of ice covered the sea in square kilometers (sq.km) and maximum and minimum temperatures are in degrees Celsius. Python library pandas is used to read csv files.
+We extracted global temperature data from NOAA and sea ice data from National Ice and Snow Data center. Total eight datasets are downloaded for global temperature in which two datasets are used for minimum and maximum temperatures and two datasets are extracted for Northern hemisphere sea ice and Southern hemisphere sea ice. Sea ice data is the area of ice covered the sea in square kilometers (sq.km) and maximum and minimum temperatures are in degrees Celsius. Python library pandas is used to read csv files.
 
     * 1st Source: Global temperatures (ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/v3/csv/)
         * 8 data sets from GHCN-Monthly Version 3 comprising of the following:
