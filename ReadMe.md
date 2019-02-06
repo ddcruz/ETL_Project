@@ -61,6 +61,6 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
 ## Potential analysis to do on the newly formed dataset
     The new tables in our data base could be used to analyze if the total ice area in the northern and southern arctic regions are correlated to global land and sea temperatures.
 
-## Challenges you overcame
+## Challenges we overcame
     1. Taking fragmented date data and combining individual columns into a typical date format using the datetime python module.
     2. The transformed gobal temp tmax and tmin datasets were so large that we encountered a MemoryError exception while doing a pd.merge.  We overcame this by saving the output to a csv.  I also had do use del(<varaible_name>) during the analysis to free up memory.
