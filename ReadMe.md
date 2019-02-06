@@ -62,7 +62,7 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
 ## Viewing Results in MySQL Workbench
 
     SELECT * FROM sea_ice;
-    ![Alt text](/screenshots/sea_ice_extents_north_south.png?raw=true "Sea Ice Extents North and South")
+    ![Alt text](./screenshots/sea_ice_extents_north_south.png?raw=true "Sea Ice Extents North and South")
     
     SELECT * FROM global_temp;
-    ![Alt text](/screenshots/global_temp_tmax_tmin.png?raw=true "Global Max and Min temperature")
+    ![Alt text](./screenshots/global_temp_tmax_tmin.png?raw=true "Global Max and Min temperature")
