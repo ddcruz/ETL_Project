@@ -7,7 +7,7 @@
 For our ETL project we’re going to download datasets from NOAA and National Snow and Ice Data Center sea ice index. We will separate the data into northern and southern hemispheres for the sea ice so that analysts can compare against the global max and global min temperature of the combined land and sea temperatures. We will transform the date and group by year and push the transformed data sets into a MySQL database.
 
 ## Identify at least 2 data sources
-We extracted global temperature data from NOAA and sea ice data from National Ice and Snow Data center. Total eight datasets are downloaded for global temperature in which two datasets are used for minimum and maximum temperatures and two datasets are extracted for Northern hemisphere sea ice and Southern hemisphere sea ice. Sea ice data is the area of ice covered the sea in square kilometers (sq.km) and maximum and minimum temperatures are in degrees Celsius. Python library pandas is used to read csv files.
+We extracted global temperature data from NOAA and sea ice data from National Ice and Snow Data center. Total eight datasets were downloaded for global temperature but we only used two datasets being the minimum and maximum temperatures. Two datasets were downloaded for Northern hemisphere and Southern hemisphere sea ice. Sea ice data is the area of ice covered the sea in square kilometers (sq.km) and maximum and minimum temperatures are in degrees Celsius. Python library pandas was used to read csv files.
 
     * 1st Source: Global temperatures (ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/v3/csv/)]
         * Selection: For this source, we only used 1 min and 1 max dataset.
@@ -55,7 +55,6 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
     9. We used the pandas “.to_sql” function to upload the merged and sorted data frame to MySQL.
 
 ## Viewing Results in MySQL Workbench
-
     SELECT * FROM sea_ice;
     SELECT * FROM global_temp;
 
@@ -65,4 +64,3 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
 ## Challenges you overcame
     1. Taking fragmented date data and combining individual columns into a typical date format using the datetime python module.
     2. The transformed gobal temp tmax and tmin datasets were so large that we encountered a MemoryError exception while doing a pd.merge.  We overcame this by saving the output to a csv.  I also had do use del(<varaible_name>) during the analysis to free up memory.
-
