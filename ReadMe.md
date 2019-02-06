@@ -4,18 +4,12 @@
     * Dexter
 
 ## Project proposal
-For our ETL project we’re going to download datasets from NOAA and The University of Colorado’s sea ice index. We will separate the data into northern and southern hemispheres for the sea ice so that analysts can compare against the global max and global min temperature of the combined land and sea temperatures. We will transform the date and group by year and push the transformed data sets into a MySQL database.
+For our ETL project we’re going to download datasets from NOAA and National Snow and Ice Data Center sea ice index. We will separate the data into northern and southern hemispheres for the sea ice so that analysts can compare against the global max and global min temperature of the combined land and sea temperatures. We will transform the date and group by year and push the transformed data sets into a MySQL database.
 
 ## Identify at least 2 data sources
-
 We extracted global temperature data from NOAA and sea ice data from National Ice and Snow Data center. Total eight datasets are downloaded for global temperature in which two datasets are used for minimum and maximum temperatures and two datasets are extracted for Northern hemisphere sea ice and Southern hemisphere sea ice. Sea ice data is the area of ice covered the sea in square kilometers (sq.km) and maximum and minimum temperatures are in degrees Celsius. Python library pandas is used to read csv files.
 
-    * 1st Source: Global temperatures (ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/v3/csv/)
-        * 8 data sets from GHCN-Monthly Version 3 comprising of the following:
-        4 avg datasets
-        2 min datasets
-        2 max datasets
-    
+    * 1st Source: Global temperatures (ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/v3/csv/)]
         * Selection: For this source, we only used 1 min and 1 max dataset.
             ./Resources/noaa/ghcn/csv/ghcnm.tmax.v3.3.0.20170708.qca.dat.csv
             ./Resources/noaa/ghcn/csv/ghcnm.tmin.v3.3.0.20170708.qca.dat.csv
@@ -28,7 +22,8 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
     For the purpose of this submisson, the datasets were truncated to the first 500 rows so that the could be uploaded on github without hitting the large file limitation.
 
 ## Production Database
-    Database name: global_temp_sea_ice_comp_db
+    We chose to use a relational database as the final datasets were in a tabular format
+    Database name: global_temp_sea_ice_db
     Table names:
         * sea_ice
         * global_temp
@@ -41,7 +36,7 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
     4. Selected the year as the index
     5. Un-pivoted the data so that the columns 1 per month are now represented as rows
     6. Convert the month value from string to integer
-    7. Added a date column, constructing a datetime object using a lamda function selecting the Year and month columns
+    7. Added a date column, constructing a datetime object using a lambda function selecting the Year and month columns
     8. Saved each transformed data as a csv file
     9. Collated both the datasets by Year into one dataset for tmax and tmin.
         a) dropped rows where the monthly TMAX or TMIN values == -9999 (as per the spec VALUE: monthly value (MISSING == -9999))
@@ -62,7 +57,12 @@ We extracted global temperature data from NOAA and sea ice data from National Ic
 ## Viewing Results in MySQL Workbench
 
     SELECT * FROM sea_ice;
-    ![Alt text](./screenshots/sea_ice_extents_north_south.png?raw=true "Sea Ice Extents North and South")
-    
     SELECT * FROM global_temp;
-    ![Alt text](./screenshots/global_temp_tmax_tmin.png?raw=true "Global Max and Min temperature")
+
+## Potential analysis to do on the newly formed dataset
+    The new tables in our data base could be used to analyze if the total ice area in the northern and southern arctic regions are correlated to global land and sea temperatures.
+
+## Challenges you overcame
+    1. Taking fragmented date data and combining individual columns into a typical date format using the datetime python module.
+    2. The transformed gobal temp tmax and tmin datasets were so large that we encountered a MemoryError exception while doing a pd.merge.  We overcame this by saving the output to a csv.  I also had do use del(<varaible_name>) during the analysis to free up memory.
+
